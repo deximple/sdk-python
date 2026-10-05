@@ -20,6 +20,15 @@ to include examples, links to docs, or any other relevant information.
 
 ### Added
 
+- **Experimental**: Standalone Nexus operations can report their outcome to a Nexus
+  service with completion callbacks. Pass `completion_callbacks` to
+  `NexusClient.start_operation` or `NexusClient.execute_operation`. Create the
+  callbacks with `temporalio.nexus.create_completion_callback`. When the
+  operation finishes, the server calls an on-complete operation on a worker for the
+  task queue of the callback. The call carries the result or the failure, and a source
+  context that you supply. The new `temporalio.nexus.notifications` module has the
+  input and output types of on-complete operations.
+
 ### Changed
 
 ### Deprecated
